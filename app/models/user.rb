@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
     has_many :adoptions, dependent: :destroy
     has_many :pets, through: :adoptions
 
@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
     validates_presence_of :username, :name, :location, :gender
     validates_uniqueness_of :username, :case_sensitive => false
-    
+
 end

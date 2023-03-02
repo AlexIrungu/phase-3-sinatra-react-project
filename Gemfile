@@ -34,6 +34,15 @@ gem "sqlite3", "~> 1.4"
 # Require all files in a folder
 gem "require_all", "~> 3.0"
 
+# bcrypt() is a sophisticated and secure hash algorithm designed by 
+# The OpenBSD project for hashing passwords. 
+# The bcrypt Ruby gem provides a simple wrapper for safely handling passwords.
+gem 'bcrypt', '~> 3.1', '>= 3.1.18'
+
+# Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
+gem 'faker', '~> 3.1', '>= 3.1.1'
+
+
 # These gems will only be used when we are running the application locally
 group :development do
   gem "pry", "~> 0.14.1"

@@ -1,4 +1,4 @@
-class Adopton < ApplicationRecord
+class Adopton < ActiveRecord::Base
     belongs_to :user
     belongs_to :pet
 
