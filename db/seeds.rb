@@ -1,10 +1,14 @@
+# This file should contain all the record creation needed to seed the database with its values
+# This data can then be loaded with rake db:seed command
+
+
 puts "🌱 Seeding spices..."
 
 # Seed your database here
 require 'faker'
 
 Pet.destroy_all
-Pet.reset_pk_sequence
+Pet.reset_sequence_name
 
 51.times do 
     Pet.create(name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, age: Faker::Creature::Dog.age, location: "NBO", img:"")
