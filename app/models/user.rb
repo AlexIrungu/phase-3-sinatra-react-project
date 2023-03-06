@@ -1,10 +1,3 @@
 class User < ActiveRecord::Base
-    has_many :adoptions, dependent: :destroy
-    has_many :pets, through: :adoptions
-
-    has_secure_password
-
-    validates_presence_of :username, :name, :location, :gender
-    validates_uniqueness_of :username, :case_sensitive => false
-
+    has_many :pets
 end
