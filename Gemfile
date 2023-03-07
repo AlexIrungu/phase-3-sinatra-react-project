@@ -42,6 +42,9 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.18'
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
 gem 'faker', '~> 3.1', '>= 3.1.1'
 
+gem 'puma'
+ ruby '2.7.4'
+
 # A simple HTTP and REST client for Ruby, inspired by the Sinatra microframework style of specifying actions: get, put, post, delete.
 gem 'rest-client', '~> 2.1'
 
