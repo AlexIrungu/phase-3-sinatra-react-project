@@ -18,7 +18,8 @@ const LoginForm = () => {
     event.preventDefault();
 
     // Send login data to server for authentication
-    fetch('/login', { //make sure you have /login 
+    fetch('/login', { 
+        //make sure you have /login 
       method: 'POST',
       body: JSON.stringify({ username, password }),
       headers: {
