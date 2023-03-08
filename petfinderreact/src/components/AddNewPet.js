@@ -23,7 +23,7 @@ function AddPet(){
         <>
         <div>
         <h2>Add a new pet:</h2>
-        <form classname="forms" onSubmit={handleAddPet}>
+        <form className="forms" onSubmit={handleAddPet}>
           <label htmlFor="newPetName">Name:</label>
           <input type="text" id="newPetName" value={newPetName} onChange={(e) => setNewPetName(e.target.value)} />
           <label htmlFor="newPetBreed">Breed:</label>

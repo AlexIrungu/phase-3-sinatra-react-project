@@ -34,7 +34,7 @@ const LoginForm = () => {
 
   return (
     <form classname="form-control" onSubmit={handleSubmit}>
-      <h1>Welcome To AdoptAPet App</h1>
+      <h1>Welcome To PETFINDER App</h1>
       <h2>Login</h2>
       <div>
         <label htmlFor="username">Username:</label>
