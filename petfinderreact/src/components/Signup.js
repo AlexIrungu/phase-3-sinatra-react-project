@@ -58,7 +58,7 @@ const SignupForm = () => {
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" value={password} onChange={handlePasswordChange} />
       </div>
-      <Link to="home"><button onClick={() => { window.location.href = 'http://localhost:3002/home' }} type="submit">Signup</button></Link>
+      <Link to="home"><button onClick={() => { window.location.href = 'http://localhost:3000/home' }} type="submit">Signup</button></Link>
       <span>
         <h6>If you have an account</h6>
         <Link to="login"><h6>Login !</h6></Link>

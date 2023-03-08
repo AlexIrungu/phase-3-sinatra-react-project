@@ -1,65 +1,103 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
-
-  configure do 
-    enable :cross_origin
+  
+  # Add your routes here
+  get "/" do
+    "WELCOME TO PETFINDER"
   end
 
-    # returns all the users
-  get "/users" do 
-    all_users = User.all
-    all_users.to_json
+  #view all the pets available
+  get "/pets" do
+    pets = Pet.all
+    pets.to_json
+  end
+
+  #search for a specific pet using its id
+  get '/pets/:id' do |id|
+    pet = Pet.find(id)
+    if pet
+      pet.to_json
+    else
+      halt 404, { error: "Pet with id #{id} not found" }.to_json
+    end
   end
   
-   #returns all the pets for a specific user
-   get "/pets/:username" do
-    single_user = User.find_by(username:params[:username])
-    single_user.pets.to_json 
-  end
-   
-    #Searches through the list of all the pets and returns the pets that match
-    post '/pets/search_all' do
-      search_request = JSON.parse(request.body.read)
-      search_response = Pet.where('name LIKE ? OR breed LIKE ?', "%#{search_request['query']}%", "%#{search_request['query']}%")
-      search_response.to_json
-    end 
 
-      #Searches through a list of all the pets of a speific user and returns the pets that match
-      post '/pets/search/:username' do
-        search_request = JSON.parse(request.body.read)
-        my_pets = User.find_by(username:params[:username])
-        search_response = my_pets.pets.where('name LIKE ? OR breed LIKE ?', "%#{body['query']}%", "%#{body['query']}%")
-        search_response.to_json
-      end 
+  #view all the users
+  get "/users" do
+    users = User.all
+    users.to_json
+  end  
 
-     #returns a list of all the pets in the database
-     get "/pets"  do
-      all_pets = Pet.all
-      all_pets.to_json
+  #add new pets
+  post '/pets/addpet' do
+    begin
+      request.body.rewind
+      data = JSON.parse(request.body.read)
+      pet = Pet.new(name: data['name'], breed: data['breed'], age: data['age'], user_id: data['user_id'])
+    
+      if pet.save
+        { message: "Pet with id #{pet.id} created successfully", data: pet }.to_json
+      else
+        halt 500, { error: "Failed to create pet" }.to_json
+      end
+    rescue => e
+      halt 500, { error: e.message }.to_json
     end
+  end
+  
+  #view all new pets added
+  get "/pets/newpets" do
+    pets = Pet.all
+    pets.to_json     
 
-      #adds a new pet into the database
-  post "/pet" do
-    new_pet = Pet.create(JSON.parse(request.body.read))
-    new_pet.to_json
   end
 
-    #removes a pet from the database
-    delete "/pets/:id" do
-      find_pet = Pet.find(params[:id])
-      find_pet.destroy
+
+  #search for pet through name 
+  get '/pets/findpet/:name' do |name|
+    pet = Pet.find_by(name: name)
+    if pet
+      pet.to_json
+    else
+      halt 404, { error: "Pet with name #{name} not found" }.to_json
     end
-      #changes the details of a single pet
-  put "/pets/:id" do 
-    new_details = JSON.parse(request.body.read)
-        find_pet = Pet.find(params[:id])
-        find_pet.update(new_details)
-        find_pet.to_json
   end
 
-  post "/user" do
-    new_user = User.create(JSON.parse(request.body.read))
-    new_user.to_json
+
+  #update age of new pet added 
+  patch '/pets/:id/update_age' do |id|
+    pet = Pet.find { |p| p[:id] == id.to_i }
+  
+    if pet
+      request.body.rewind
+      data = JSON.parse(request.body.read)
+      pet.update(age: data['age']) # This line updates the age in the database
+      { message: "Pet with id #{id} age updated successfully", data: pet }.to_json
+    else
+      halt 404, { error: "Pet with id #{id} not found" }.to_json
+    end
   end
+  
+  #delete new pets
+  delete '/pets/deletepets/:id' do |id|
+    pet = Pet.find_by(id: id)
+  
+    if pet
+      pet.destroy
+      { message: "Pet with id #{id} deleted successfully" }.to_json
+    else
+      halt 404, { error: "Pet with id #{id} not found" }.to_json
+    end
+  end
+
+  #remove details of new pets added
+  delete '/pets/' do
+    pet = Pet.find_by(age: params[:age])
+    pet.update(age: nil)
+  end
+
+
+  #not able to update pets not added
 
 end
