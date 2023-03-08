@@ -29,7 +29,7 @@ const LoginForm = () => {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error(error));
-    navigate('/pets');
+    navigate('/home');
   };
 
   return (

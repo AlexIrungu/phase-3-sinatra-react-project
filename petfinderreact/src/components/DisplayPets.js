@@ -54,19 +54,6 @@ const DisplayPets = () => {
           <br />
         </div>
       ))}
-
-      <div>
-        <h2>Add a new pet:</h2>
-        <form classname="forms" onSubmit={handleAddPet}>
-          <label htmlFor="newPetName">Name:</label>
-          <input type="text" id="newPetName" value={newPetName} onChange={(e) => setNewPetName(e.target.value)} />
-          <label htmlFor="newPetBreed">Breed:</label>
-          <input type="text" id="newPetBreed" value={newPetBreed} onChange={(e) => setNewPetBreed(e.target.value)} />
-          <label htmlFor="newPetAge">Age:</label>
-          <input type="number" id="newPetAge" value={newPetAge} onChange={(e) => setNewPetAge(e.target.value)} />
-          <button type="submit">Add New Pet</button>
-        </form>
-      </div>
     </div>
   );
 };

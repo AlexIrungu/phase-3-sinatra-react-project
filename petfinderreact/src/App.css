@@ -102,11 +102,11 @@ h2 {
   margin-bottom: 10px;
 }
 
-div {
+/* div {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-}
+} */
 
 label {
   font-size: 1rem;
@@ -115,8 +115,8 @@ label {
 
 input {
   display: flex;
-  height: 30px;
-  width: 200px;
+  height: 20px;
+  width: 9    00px;
   font-size: 1rem;
   padding: 5px;
   border: 1px solid #ccc;
@@ -137,4 +137,57 @@ button {
 
 button:hover {
   background-color: #3e8e41;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 1rem;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar h2:hover {
+  color: #fff;
+  background-color: #333;
+  cursor: pointer;
+}
+
+.navbar .active {
+  color: #fff;
+  background-color: #333;
+}
+
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin: 20px;
+  width: 300px;
+}
+
+.card img {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+}
+
+.card h2 {
+  margin: 10px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 10px;
+  font-size: 1rem;
+  color: #555;
 }
