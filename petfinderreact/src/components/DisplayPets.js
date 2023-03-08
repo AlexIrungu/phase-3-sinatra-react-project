@@ -32,9 +32,7 @@ const DisplayPets = () => {
 
   return (
     <div className="centered">
-      <nav>
-        <button onClick={() => { window.location.href = 'http://localhost:3002/login' }}>Logout</button>
-      </nav>
+      
       <br />
       <nav>
         <form onSubmit={(e) => e.preventDefault()}>

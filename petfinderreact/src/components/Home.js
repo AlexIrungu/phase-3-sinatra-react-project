@@ -10,17 +10,22 @@ return(
      <NavLink exact to = "/home">
         <h2>HOME</h2>
      </NavLink>
-     <NavLink exact to = "/login">
+     {/* <NavLink exact to = "/login">
         <h2>LOGIN</h2>
-     </NavLink>
-     <NavLink exact to = "/signup">
+     </NavLink> */}
+     {/* <NavLink exact to = "/signup">
         <h2>SIGN UP</h2>
-     </NavLink>
+     </NavLink> */}
      <NavLink exact to = "/addpet">
         <h2>ADD PET</h2>
      </NavLink>
      <NavLink exact to = "/pets">
         <h2>ALL PETS</h2>
+     </NavLink>
+     <NavLink>
+     
+        <button onClick={() => { window.location.href = 'http://localhost:3002/signup' }}>Logout</button>
+      
      </NavLink>
 
     </nav>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../App.css"
+import { Link } from 'react-router-dom';
 
 const SignupForm = () => {
   const [username, setUsername] = useState('');
@@ -57,7 +58,11 @@ const SignupForm = () => {
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" value={password} onChange={handlePasswordChange} />
       </div>
-      <button type="submit">Signup</button>
+      <Link to="home"><button onClick={() => { window.location.href = 'http://localhost:3002/home' }} type="submit">Signup</button></Link>
+      <span>
+        <h6>If you have an account</h6>
+        <Link to="login"><h6>Login !</h6></Link>
+      </span>
     </form>
 
   );
