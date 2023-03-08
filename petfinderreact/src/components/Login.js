@@ -33,7 +33,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form classname="form-control" onSubmit={handleSubmit}>
       <h1>Welcome To AdoptAPet App</h1>
       <h2>Login</h2>
       <div>
