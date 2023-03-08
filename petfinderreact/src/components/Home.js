@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom"
 import "../App.css"
+import image from "../assets/images.jpeg"
 
 function Home(){
 return(
@@ -27,8 +28,12 @@ return(
     <div className="card">
         <h1>PET FINDER</h1>
         <p>A loyal and friendly companion</p>
-        <img src="" alt="" />
+        <h3>Sometimes all you need is your pet.</h3>
+        
     </div>
+    <div>
+        <img src={image} alt="" />
+        </div>
     </div>
 )
 }

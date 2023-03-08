@@ -42,7 +42,7 @@ const DisplayPets = () => {
           <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
           <button type="submit">Search</button>
         </form>
-        <button>Delete Pet</button>
+        
       </nav>
 
       {filteredPets.map((pet) => (
@@ -50,7 +50,7 @@ const DisplayPets = () => {
           <p><strong>NAME: </strong>{pet.name}</p>
           <p><strong>BREED: </strong>{pet.breed}</p>
           <p><strong>AGE: </strong>{pet.age}</p>
-          <button>Add Pet</button>
+          <button>Delete Pet</button>
           <br />
         </div>
       ))}
